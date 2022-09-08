@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "yarn": "yarn --cwd .astro",
+    "build": "yarn --cwd .astro build",
+    "dev:astro": "yarn --cwd .astro dev",
+    "dev:deno": "deno run -A --watch=astro/pages/,astro/static/,fresh/static,fresh/routes,main.ts ./main.ts",
+    "astro:watch": "deno run --allow-run --watch=astro/pages .astro/watch.ts",
+    "fresh:watch": "deno run -A --watch=fresh/static/,fresh/routes/ fresh/dev.ts",
+    "dev": "deno task astro:watch & deno task dev:deno & deno task fresh:watch",
+    "start": "deno run --allow-env --allow-net=0.0.0.0:8009 --allow-read=.astro/dist ./main.ts"
+  },
+  "importMap": "./fresh/import_map.json"
+}
